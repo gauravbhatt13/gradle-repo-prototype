@@ -1,0 +1,6 @@
+allprojects {
+    group 'com.lurninghut'
+    version '1.0-SNAPSHOT'
+}
+
+

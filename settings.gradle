@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-repo-prototype'
+include 'ui-service'
+include 'utilities'
+

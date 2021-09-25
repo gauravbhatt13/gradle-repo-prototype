@@ -1,0 +1,8 @@
+import com.lurninghut.build.plugin.GreetingPlugin
+
+plugins {
+    id 'java-library-conventions'
+}
+
+apply plugin: GreetingPlugin
+

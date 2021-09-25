@@ -1,0 +1,11 @@
+plugins {
+    id 'java-application-conventions'
+}
+
+dependencies {
+    implementation project(':utilities')
+}
+
+application {
+    mainClass = 'com.lurninghut.Application'
+}
