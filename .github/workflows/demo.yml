@@ -15,7 +15,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Expose git commit data
-        uses: rlespinasse/git-commit-data-action@v1.1.2
+        uses: rlespinasse/git-commit-data-action@v1.x
 
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
