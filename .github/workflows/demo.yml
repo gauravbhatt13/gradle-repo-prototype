@@ -1,0 +1,29 @@
+name: Demo
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Create and commit
+        run: echo "Image to be used" > demo.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Raise PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: "demo branch"
+          base: main
+          title: "Demo for auto PR"
+          committer: ${{ github.event.client_payload.github.event.head_commit.author.name }} <${{ github.event.client_payload.github.event.head_commit.author.email }}>
+          commit-message: "Demo auto pr"
+          author: ${{ github.event.client_payload.github.event.head_commit.author.name }} <${{ github.event.client_payload.github.event.head_commit.author.email }}>
+          body:
+            This PR is to show a demo
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete-branch: true
