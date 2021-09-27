@@ -20,9 +20,9 @@ jobs:
           branch: "demo branch"
           base: main
           title: "Demo for auto PR"
-          committer: ${{ github.event.client_payload.github.event.head_commit.author.name }} <${{ github.event.client_payload.github.event.head_commit.author.email }}>
+          committer: ${{ github.event.client_payload.github.event.head_commit.author.name }} ${{ github.event.client_payload.github.event.head_commit.author.email }}
           commit-message: "${{ github.event.client_payload.github.event.head_commit.message }} - committed in ${{ github.event.client_payload.github.repository }}"
-          author: ${{ github.event.client_payload.github.event.head_commit.author.name }} <${{ github.event.client_payload.github.event.head_commit.author.email }}>
+          author: ${{ github.event.client_payload.github.event.head_commit.author.name }} ${{ github.event.client_payload.github.event.head_commit.author.email }}
           body:
             This PR is to show a demo
           token: ${{ secrets.GITHUB_TOKEN }}
