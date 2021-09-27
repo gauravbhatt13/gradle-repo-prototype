@@ -14,15 +14,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Expose git commit data
+        uses: rlespinasse/git-commit-data-action@v1.1.2
+
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
         with:
           branch: "demo branch"
           base: main
           title: "Demo for auto PR"
-          committer: "gauravb"
+          committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           commit-message: "${{ github.event.client_payload.github.event.head_commit.message }} - committed in ${{ github.event.client_payload.github.repository }}"
-          author: "gauravb"
+          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           body:
             This PR is to show a demo
           token: ${{ secrets.GITHUB_TOKEN }}
