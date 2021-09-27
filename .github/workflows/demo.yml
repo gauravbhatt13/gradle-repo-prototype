@@ -1,6 +1,6 @@
 name: Demo
 
-on: pull_request
+on: push
 
 jobs:
   build:
